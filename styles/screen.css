@@ -425,6 +425,52 @@ td,
 th {
   padding: 0;
 }
+/* 模拟 macOS 终端标题栏（含三色圆点） */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  background-color: #090000ec;
+  padding: 8px 12px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.terminal-dot.red { background-color: #f4635b; }
+.terminal-dot.yellow { background-color: #de94c5; }
+.terminal-dot.green { background-color: #6cb6e7; }
+.terminal-title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.terminal-content {
+  background-color: #7c7b7b;
+  padding: 4px 8px;
+  margin: 5px 0;
+  max-height: 150px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-family: "Menlo", "Monaco", "Consolas", monospace;
+  height: auto; /* 关键：自动适应内容高度 */
+  overflow-x: auto; /* 代码太长时显示横向滚动条，不破坏布局 */
+  font-size: 15px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+.terminal-content .line {
+  font-size: 15px;
+}
+.terminal-content .comment {
+  font-size: 15px;
+  color: rgb(7, 244, 86);
+}
+}
 
 @font-face {
   font-family: 'Open Sans';

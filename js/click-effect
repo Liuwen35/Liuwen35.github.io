@@ -1,0 +1,26 @@
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.addEventListener('click', function(e) {
+    const dot = document.createElement('div');
+    dot.style.position = 'absolute';
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
+    dot.style.width = '20px';
+    dot.style.height = '20px';
+    dot.style.backgroundColor = 'red';
+    dot.style.borderRadius = '50%';
+    dot.style.zIndex = '9999'; // 确保粒子在最上层
+    document.body.appendChild(dot);
+
+    // 简单动画（向上移动并消失）
+    let top = parseInt(dot.style.top);
+    const animate = setInterval(() => {
+      top -= 5;
+      dot.style.top = top + 'px';
+      dot.style.opacity = (parseFloat(dot.style.opacity) || 1) - 0.1;
+      if (top < 0 || parseFloat(dot.style.opacity) <= 0) {
+        clearInterval(animate);
+        document.body.removeChild(dot);
+      }
+    }, 30);
+  });
+});
